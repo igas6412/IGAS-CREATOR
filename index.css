@@ -1,0 +1,911 @@
+/* ==========================================
+
+1. CONFIGURATION GÉNÉRALE
+   ========================================== */
+
+:root {
+--bleu: #0056B3;
+--bleu-clair: #EAF2FF;
+--bleu-hover: #003F87;
+--noir: #000000;
+--blanc: #FFFFFF;
+--fond: #F7F9FC;
+--bordure: #D5E2F5;
+--ombre: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  }
+
+body {
+font-family: Arial, Helvetica, sans-serif;
+background: var(--blanc);
+color: var(--noir);
+line-height: 1.7;
+}
+
+html {
+scroll-padding-top: 90px;
+}
+
+a {
+color: var(--bleu);
+text-decoration: none;
+}
+
+img {
+max-width: 100%;
+display: block;
+}
+
+button {
+font-family: inherit;
+cursor: pointer;
+}
+
+.section {
+padding: 85px 8%;
+scroll-margin-top: 75px;
+}
+
+/* ==========================================
+2. TITRES ET PARAGRAPHES
+========================================== */
+
+/* Grand titre principal en bleu */
+
+h1 {
+color: var(--bleu);
+font-size: clamp(2.2rem, 5vw, 4rem);
+line-height: 1.2;
+margin-bottom: 20px;
+}
+
+/* Titres des sections en bleu */
+
+.section-heading h2,
+.contact-box h2 {
+color: var(--bleu);
+font-size: clamp(1.8rem, 4vw, 2.7rem);
+line-height: 1.3;
+margin-bottom: 15px;
+}
+
+/* Petits titres en noir */
+
+h2,
+h3,
+h4 {
+color: var(--noir);
+}
+
+.hero h2 {
+font-size: 1.3rem;
+margin-bottom: 18px;
+}
+
+.project-card h3,
+.service-card h3,
+.hero-card h3,
+.about-text h3 {
+color: var(--noir);
+font-size: 1.2rem;
+margin-bottom: 12px;
+}
+
+/* Tous les paragraphes en noir */
+
+p {
+color: var(--noir);
+}
+
+/* Mots importants en bleu */
+
+.highlight,
+.eyebrow,
+.text-link {
+color: var(--bleu);
+}
+
+.eyebrow {
+font-size: 0.82rem;
+font-weight: bold;
+letter-spacing: 2px;
+margin-bottom: 14px;
+}
+
+/* ==========================================
+3. EN-TÊTE DU SITE
+========================================== */
+
+.header {
+position: sticky;
+top: 0;
+z-index: 900;
+
+min-height: 75px;
+padding: 15px 8%;
+
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+background: var(--blanc);
+border-bottom: 1px solid var(--bordure);
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+
+}
+
+/* Logo IGAS CREATOR */
+
+.logo {
+font-size: 1.4rem;
+font-weight: 800;
+letter-spacing: 1px;
+color: var(--noir);
+}
+
+.logo span {
+color: var(--bleu);
+}
+
+/* Bouton Menu */
+
+.menu-btn {
+background: var(--bleu);
+color: var(--blanc);
+
+border: none;
+border-radius: 8px;
+
+padding: 10px 17px;
+
+font-size: 1rem;
+font-weight: bold;
+
+transition: background 0.3s, transform 0.3s;
+
+}
+
+.menu-btn:hover {
+background: var(--bleu-hover);
+transform: translateY(-2px);
+}
+
+/* ==========================================
+4. SIDEBAR
+========================================== */
+
+.sidebar {
+position: fixed;
+top: 0;
+left: 0;
+
+width: 290px;
+max-width: 85vw;
+height: 100vh;
+
+padding: 25px 20px;
+
+background: var(--blanc);
+border-right: 1px solid var(--bordure);
+
+box-shadow: var(--ombre);
+
+z-index: 1200;
+
+transform: translateX(-105%);
+transition: transform 0.3s ease;
+
+overflow-y: auto;
+
+}
+
+/* Ouverture du sidebar */
+
+.sidebar.active {
+transform: translateX(0);
+}
+
+/* En-tête du sidebar */
+
+.sidebar-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 10px;
+
+padding-bottom: 15px;
+border-bottom: 1px solid var(--bordure);
+
+}
+
+.sidebar-header h2 {
+color: var(--bleu);
+font-size: 1.15rem;
+}
+
+/* Bouton fermer */
+
+.close-btn {
+background: transparent;
+color: var(--noir);
+
+border: none;
+
+font-size: 2rem;
+line-height: 1;
+
+cursor: pointer;
+
+}
+
+.close-btn:hover {
+color: var(--bleu);
+}
+
+/* Description du sidebar */
+
+.sidebar-description {
+color: var(--noir);
+font-size: 0.9rem;
+margin: 15px 0 25px;
+}
+
+/* Liens du menu */
+
+.sidebar-nav {
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+
+.sidebar-nav a {
+display: block;
+
+padding: 12px 14px;
+
+color: var(--noir);
+background: transparent;
+
+border-radius: 8px;
+
+font-size: 0.95rem;
+
+transition: background 0.3s, color 0.3s;
+
+}
+
+.sidebar-nav a:hover {
+color: var(--bleu);
+background: var(--bleu-clair);
+}
+
+/* Pied du sidebar */
+
+.sidebar-footer {
+margin-top: 35px;
+padding-top: 20px;
+
+border-top: 1px solid var(--bordure);
+
+}
+
+.sidebar-footer p {
+color: var(--noir);
+font-size: 0.85rem;
+}
+
+/* Fond sombre derrière le sidebar */
+
+.sidebar-overlay {
+position: fixed;
+inset: 0;
+
+background: rgba(0, 0, 0, 0.45);
+
+z-index: 1100;
+
+opacity: 0;
+visibility: hidden;
+
+transition: opacity 0.3s, visibility 0.3s;
+
+}
+
+.sidebar-overlay.active {
+opacity: 1;
+visibility: visible;
+}
+
+/* ==========================================
+5. BOUTONS
+========================================== */
+
+.btn {
+display: inline-block;
+
+padding: 12px 23px;
+
+border-radius: 8px;
+
+font-size: 0.95rem;
+font-weight: bold;
+
+text-align: center;
+
+transition: transform 0.3s, background 0.3s;
+
+}
+
+.btn:hover {
+transform: translateY(-3px);
+}
+
+/* Bouton bleu */
+
+.btn-primary {
+background: var(--bleu);
+color: var(--blanc);
+
+border: 1px solid var(--bleu);
+
+}
+
+.btn-primary:hover {
+background: var(--bleu-hover);
+color: var(--blanc);
+}
+
+/* Bouton blanc avec bordure bleue */
+
+.btn-secondary {
+background: var(--blanc);
+color: var(--bleu);
+
+border: 1px solid var(--bleu);
+
+}
+
+.btn-secondary:hover {
+background: var(--bleu-clair);
+color: var(--bleu-hover);
+}
+
+/* ==========================================
+6. SECTION ACCUEIL
+========================================== */
+
+.hero {
+min-height: 590px;
+
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+gap: 50px;
+
+background: var(--blanc);
+
+}
+
+.hero-content {
+flex: 1;
+max-width: 720px;
+}
+
+.hero h1 {
+margin-bottom: 22px;
+}
+
+.hero h2 {
+color: var(--noir);
+font-weight: 500;
+}
+
+.hero-description {
+color: var(--noir);
+font-size: 1rem;
+margin-bottom: 30px;
+max-width: 650px;
+}
+
+.hero-buttons {
+display: flex;
+flex-wrap: wrap;
+gap: 15px;
+}
+
+/* Carte de présentation */
+
+.hero-card {
+flex: 0 0 270px;
+
+padding: 30px;
+
+background: var(--fond);
+
+border: 1px solid var(--bordure);
+border-radius: 16px;
+
+box-shadow: var(--ombre);
+
+text-align: center;
+
+}
+
+.hero-icon {
+font-size: 4rem;
+margin-bottom: 15px;
+}
+
+.hero-card h3 {
+margin-bottom: 10px;
+}
+
+.hero-card p {
+color: var(--noir);
+}
+
+/* ==========================================
+7. TITRES DES SECTIONS
+========================================== */
+
+.section-heading {
+max-width: 750px;
+
+margin: 0 auto 45px;
+
+text-align: center;
+
+}
+
+.section-heading h2 {
+margin-bottom: 15px;
+}
+
+.section-heading p {
+color: var(--noir);
+}
+
+/* ==========================================
+8. SECTION À PROPOS
+========================================== */
+
+.about {
+background: var(--fond);
+}
+
+.about-content {
+max-width: 1100px;
+margin: auto;
+
+display: grid;
+grid-template-columns: 300px 1fr;
+
+align-items: center;
+gap: 50px;
+
+}
+
+/* Photo */
+
+.profile-image {
+width: 100%;
+max-width: 300px;
+height: 340px;
+
+margin: auto;
+
+overflow: hidden;
+
+border: 2px solid var(--bleu);
+border-radius: 15px;
+
+background: var(--blanc);
+
+}
+
+.profile-image img {
+width: 100%;
+height: 100%;
+
+object-fit: cover;
+
+}
+
+/* Texte de présentation */
+
+.about-text h3 {
+font-size: 1.5rem;
+margin-bottom: 15px;
+}
+
+.about-text p {
+color: var(--noir);
+margin-bottom: 15px;
+}
+
+/* Lien */
+
+.text-link {
+display: inline-block;
+margin-top: 10px;
+
+font-weight: bold;
+
+}
+
+.text-link:hover {
+color: var(--bleu-hover);
+text-decoration: underline;
+}
+
+/* ==========================================
+9. CARTES DES PROJETS
+========================================== */
+
+.project-grid {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+
+gap: 25px;
+
+}
+
+/* Carte */
+
+.project-card {
+padding: 28px;
+
+background: var(--blanc);
+
+border: 1px solid var(--bordure);
+border-radius: 14px;
+
+box-shadow: var(--ombre);
+
+transition: transform 0.3s, border-color 0.3s;
+
+}
+
+.project-card:hover {
+transform: translateY(-6px);
+border-color: var(--bleu);
+}
+
+/* Icône */
+
+.project-icon {
+font-size: 2.5rem;
+margin-bottom: 15px;
+}
+
+/* Titre */
+
+.project-card h3 {
+font-size: 1.2rem;
+margin-bottom: 12px;
+}
+
+/* Description */
+
+.project-card p {
+color: var(--noir);
+font-size: 0.95rem;
+}
+
+/* Étiquette */
+
+.project-tag {
+display: inline-block;
+
+margin-top: 20px;
+padding: 6px 11px;
+
+background: var(--bleu-clair);
+color: var(--bleu);
+
+border-radius: 5px;
+
+font-size: 0.8rem;
+font-weight: bold;
+
+}
+
+/* Note */
+
+.section-note {
+color: var(--noir);
+font-size: 0.9rem;
+margin-top: 25px;
+}
+
+/* ==========================================
+10. PROJETS EN COURS
+========================================== */
+
+.ongoing {
+background: var(--fond);
+}
+
+/* ==========================================
+11. SERVICES
+========================================== */
+
+.service-grid {
+display: grid;
+grid-template-columns: repeat(4, minmax(0, 1fr));
+
+gap: 22px;
+
+}
+
+.service-card {
+padding: 28px 20px;
+
+background: var(--blanc);
+
+border: 1px solid var(--bordure);
+border-radius: 14px;
+
+box-shadow: var(--ombre);
+
+text-align: center;
+
+transition: transform 0.3s, border-color 0.3s;
+
+}
+
+.service-card:hover {
+transform: translateY(-5px);
+border-color: var(--bleu);
+}
+
+/* Icônes des services */
+
+.service-icon {
+font-size: 2.5rem;
+margin-bottom: 15px;
+}
+
+/* Titres des services */
+
+.service-card h3 {
+color: var(--noir);
+font-size: 1.15rem;
+margin-bottom: 12px;
+}
+
+/* Paragraphes des services */
+
+.service-card p {
+color: var(--noir);
+font-size: 0.95rem;
+}
+
+/* ==========================================
+12. SECTION CONTACT
+========================================== */
+
+.contact {
+background: var(--bleu-clair);
+}
+
+.contact-box {
+max-width: 850px;
+
+margin: auto;
+padding: 50px 30px;
+
+background: var(--blanc);
+
+border: 1px solid var(--bordure);
+border-radius: 18px;
+
+box-shadow: var(--ombre);
+
+text-align: center;
+
+}
+
+.contact-box h2 {
+color: var(--bleu);
+margin-bottom: 20px;
+}
+
+.contact-box p:not(.eyebrow) {
+max-width: 650px;
+
+margin: 0 auto 25px;
+
+color: var(--noir);
+
+}
+
+/* ==========================================
+13. PIED DE PAGE
+========================================== */
+
+.footer {
+padding: 35px 8%;
+
+background: var(--blanc);
+
+border-top: 1px solid var(--bordure);
+
+text-align: center;
+
+}
+
+.footer .logo {
+display: inline-block;
+margin-bottom: 10px;
+}
+
+.footer p {
+color: var(--noir);
+margin-top: 10px;
+}
+
+.footer .copyright {
+margin-top: 20px;
+font-size: 0.85rem;
+}
+
+/* ==========================================
+14. RESPONSIVE : TABLETTES
+========================================== */
+
+@media (max-width: 1000px) {
+
+.section {
+    padding: 75px 6%;
+}
+
+.hero {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.hero-card {
+    width: 100%;
+    max-width: 450px;
+
+    flex-basis: auto;
+}
+
+.project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.about-content {
+    gap: 30px;
+}
+
+}
+
+/* ==========================================
+15. RESPONSIVE : TÉLÉPHONES
+========================================== */
+
+@media (max-width: 650px) {
+
+.section {
+    padding: 60px 6%;
+}
+
+.header {
+    padding: 14px 6%;
+    min-height: 68px;
+}
+
+.logo {
+    font-size: 1.05rem;
+}
+
+.menu-btn {
+    padding: 9px 12px;
+    font-size: 0.9rem;
+}
+
+.hero {
+    min-height: auto;
+    gap: 35px;
+}
+
+.hero h1 {
+    font-size: 2.25rem;
+}
+
+.hero h2 {
+    font-size: 1.05rem;
+}
+
+.hero-description {
+    font-size: 0.95rem;
+}
+
+.hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.hero-card {
+    padding: 25px;
+}
+
+.section-heading {
+    margin-bottom: 30px;
+}
+
+.section-heading h2,
+.contact-box h2 {
+    font-size: 1.8rem;
+}
+
+.about-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.profile-image {
+    height: 300px;
+}
+
+.about-text h3 {
+    font-size: 1.3rem;
+}
+
+.project-grid,
+.service-grid {
+    grid-template-columns: 1fr;
+}
+
+.project-card,
+.service-card {
+    padding: 24px;
+}
+
+.contact-box {
+    padding: 35px 20px;
+}
+
+.footer {
+    padding: 30px 6%;
+}
+
+}
+
+/* ==========================================
+16. ACCESSIBILITÉ
+========================================== */
+
+a:focus-visible,
+button:focus-visible {
+outline: 3px solid var(--bleu);
+outline-offset: 4px;
+}
+
+/* Réduire les animations si l'utilisateur le préfère */
+
+@media (prefers-reduced-motion: reduce) {
+
+*,
+*::before,
+*::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+}
+
+}
