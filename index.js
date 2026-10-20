@@ -1,33 +1,32 @@
-// ==================================================
-// IGAS CREATOR - JAVASCRIPT COMPLET
-// Formulaire de commande et réseaux sociaux
-// ==================================================
+// =====================================================
+// IGAS CREATOR - CONTACT ET COMMANDE
+// =====================================================
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    // ================================================
+    // =========================================
     // 1. CONFIGURATION
-    // ================================================
+    // =========================================
 
-    // Remplace par ton vrai numéro WhatsApp
-    // Format Burundi : 257XXXXXXXX, sans + ni espaces
-    const numeroWhatsApp = "25779000000";
+    // Ton numéro WhatsApp
+    const numeroWhatsApp = "25767356795";
 
-    // Remplace par les liens de TES profils
+    // Liens des réseaux sociaux
+    // Remplace les liens généraux par ceux de tes profils.
     const lienFacebook = "https://www.facebook.com/";
     const lienInstagram = "https://www.instagram.com/";
     const lienTikTok = "https://www.tiktok.com/";
 
-    // ================================================
-    // 2. RÉCUPÉRER LE FORMULAIRE
-    // ================================================
+    // =========================================
+    // 2. RÉCUPÉRER LES ÉLÉMENTS HTML
+    // =========================================
 
     const formCommande = document.getElementById("formCommande");
     const messageForm = document.getElementById("messageForm");
 
-    // ================================================
+    // =========================================
     // 3. FONCTION POUR AFFICHER UN MESSAGE
-    // ================================================
+    // =========================================
 
     function afficherMessage(texte, type) {
 
@@ -37,20 +36,20 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             alert(texte);
         }
+
     }
 
-    // ================================================
-    // 4. GÉRER LE FORMULAIRE DE COMMANDE
-    // ================================================
+    // =========================================
+    // 4. TRAITEMENT DU FORMULAIRE
+    // =========================================
 
     if (formCommande) {
 
         formCommande.addEventListener("submit", function (event) {
 
-            // Empêcher le rechargement de la page
             event.preventDefault();
 
-            // Récupérer les informations
+            // Récupérer les valeurs du formulaire
             const nom = document.getElementById("nom")?.value.trim() || "";
 
             const province =
@@ -71,9 +70,9 @@ document.addEventListener("DOMContentLoaded", function () {
             const description =
                 document.getElementById("message")?.value.trim() || "";
 
-            // ============================================
+            // =====================================
             // 5. VÉRIFIER LES CHAMPS OBLIGATOIRES
-            // ============================================
+            // =====================================
 
             if (
                 nom === "" ||
@@ -90,40 +89,48 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            // Vérifier le téléphone
+            // =====================================
+            // 6. VÉRIFIER LE NUMÉRO DE TÉLÉPHONE
+            // =====================================
+
             const telephoneNettoye =
                 telephone.replace(/[\s()+-]/g, "");
 
             if (!/^\d{8,15}$/.test(telephoneNettoye)) {
                 afficherMessage(
-                    "Veuillez entrer un numéro de téléphone valide.",
+                    "Veuillez saisir un numéro de téléphone valide.",
                     "erreur"
                 );
                 return;
             }
 
-            // Vérifier l'email
+            // =====================================
+            // 7. VÉRIFIER L'ADRESSE EMAIL
+            // =====================================
+
             const expressionEmail =
                 /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
             if (!expressionEmail.test(email)) {
                 afficherMessage(
-                    "Veuillez entrer une adresse email valide.",
+                    "Veuillez saisir une adresse email valide.",
                     "erreur"
                 );
                 return;
             }
 
-            // ============================================
-            // 6. PRÉPARER LE MESSAGE WHATSAPP
-            // ============================================
+            // =====================================
+            // 8. PRÉPARER LA COMMANDE
+            // =====================================
 
             const texteCommande = `
 Bonjour IGAS CREATOR !
 
 Je souhaite commander un service.
 
-===== INFORMATIONS DU CLIENT =====
+================================
+INFORMATIONS DU CLIENT
+================================
 
 Nom complet : ${nom}
 Province : ${province}
@@ -131,20 +138,24 @@ Commune : ${commune}
 Téléphone : ${telephone}
 Email : ${email}
 
-===== SERVICE DEMANDÉ =====
+================================
+SERVICE DEMANDÉ
+================================
 
 ${service}
 
-===== DESCRIPTION DU PROJET =====
+================================
+DESCRIPTION DU PROJET
+================================
 
 ${description || "Aucune description supplémentaire."}
 
 Merci de me contacter pour discuter de mon projet.
             `.trim();
 
-            // ============================================
-            // 7. CRÉER LE LIEN WHATSAPP
-            // ============================================
+            // =====================================
+            // 9. CONSTRUIRE LE LIEN WHATSAPP
+            // =====================================
 
             const lienCommande =
                 "https://wa.me/" +
@@ -152,16 +163,15 @@ Merci de me contacter pour discuter de mon projet.
                 "?text=" +
                 encodeURIComponent(texteCommande);
 
-            // ============================================
-            // 8. AFFICHER LA CONFIRMATION
-            // ============================================
+            // =====================================
+            // 10. OUVRIR WHATSAPP
+            // =====================================
 
             afficherMessage(
-                "Vos informations sont prêtes. Ouverture de WhatsApp...",
+                "Ouverture de WhatsApp pour envoyer votre commande...",
                 "succes"
             );
 
-            // Ouvrir WhatsApp
             window.location.href = lienCommande;
 
         });
@@ -169,48 +179,62 @@ Merci de me contacter pour discuter de mon projet.
     } else {
 
         console.warn(
-            "Formulaire introuvable : vérifie id='formCommande' dans contacte.html."
+            "Formulaire introuvable. Vérifie id='formCommande' dans contacte.html."
         );
 
     }
 
-    // ================================================
-    // 9. CONFIGURER LES LIENS DES RÉSEAUX SOCIAUX
-    // ================================================
+    // =========================================
+    // 11. CONFIGURER LES LIENS SOCIAUX
+    // =========================================
 
-    const boutonFacebook = document.getElementById("lienFacebook");
-    const boutonInstagram = document.getElementById("lienInstagram");
-    const boutonTikTok = document.getElementById("lienTikTok");
-    const boutonWhatsApp = document.getElementById("lienWhatsApp");
+    const boutonFacebook =
+        document.getElementById("lienFacebook");
 
+    const boutonInstagram =
+        document.getElementById("lienInstagram");
+
+    const boutonTikTok =
+        document.getElementById("lienTikTok");
+
+    const boutonWhatsApp =
+        document.getElementById("lienWhatsApp");
+
+    // Facebook
     if (boutonFacebook) {
         boutonFacebook.href = lienFacebook;
         boutonFacebook.target = "_blank";
         boutonFacebook.rel = "noopener noreferrer";
     }
 
+    // Instagram
     if (boutonInstagram) {
         boutonInstagram.href = lienInstagram;
         boutonInstagram.target = "_blank";
         boutonInstagram.rel = "noopener noreferrer";
     }
 
+    // TikTok
     if (boutonTikTok) {
         boutonTikTok.href = lienTikTok;
         boutonTikTok.target = "_blank";
         boutonTikTok.rel = "noopener noreferrer";
     }
 
+    // WhatsApp
     if (boutonWhatsApp) {
-        boutonWhatsApp.href = "https://wa.me/" + numeroWhatsApp;
+        boutonWhatsApp.href =
+            "https://wa.me/" + numeroWhatsApp;
+
         boutonWhatsApp.target = "_blank";
         boutonWhatsApp.rel = "noopener noreferrer";
     }
 
-    // ================================================
-    // 10. MESSAGE DE VÉRIFICATION
-    // ================================================
+    // =========================================
+    // 12. CONFIRMATION DANS LA CONSOLE
+    // =========================================
 
     console.log("IGAS CREATOR : JavaScript chargé avec succès.");
+    console.log("WhatsApp : " + numeroWhatsApp);
 
 });
