@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Commander un service | IGAS CREATOR</title>
+
+    <link rel="stylesheet" href="contacte.css">
+</head>
+
+<body>
+
+    <!-- SECTION PRINCIPALE -->
+    <main class="container">
+
+        <h1>REMPLISSEZ LE FORMULAIRE POUR COMMANDER</h1>
+
+        <p class="description">
+            Vous souhaitez commander un site web ou une application ?
+            Remplissez le formulaire ci-dessous pour nous présenter votre demande.
+        </p>
+
+        <!-- FORMULAIRE DE COMMANDE -->
+        <form id="formCommande">
+
+            <!-- NOM COMPLET -->
+            <div class="form-group">
+                <label for="nom">Nom et prénom</label>
+
+                <input
+                    type="text"
+                    id="nom"
+                    name="nom"
+                    placeholder="Exemple : MIBURO Jean"
+                    required
+                >
+            </div>
+
+            <!-- PROVINCE -->
+            <div class="form-group">
+                <label for="province">Province</label>
+
+                <select id="province" name="province" required>
+                    <option value=""> Choisissez votre province </option>
+                    <option value="Buhumuza">Buhumuza</option>
+                    <option value="Bujumbura">Bujumbura</option>
+                    <option value="Burunga">Burunga</option>
+                    <option value="Butanyerera">Butanyerera</option>
+                    <option value="Gitega">Gitega</option>
+                </select>
+            </div>
+
+            <!-- COMMUNE -->
+            <div class="form-group">
+                <label for="commune">Commune</label>
+
+                <input
+                    type="text"
+                    id="commune"
+                    name="commune"
+                    placeholder="Entrez le nom de votre commune"
+                    required
+                >
+            </div>
+
+            <!-- TÉLÉPHONE -->
+            <div class="form-group">
+                <label for="telephone">Numéro de téléphone</label>
+
+                <input
+                    type="tel"
+                    id="telephone"
+                    name="telephone"
+                    placeholder="Exemple : +257 79 000 000"
+                    required
+                >
+            </div>
+
+            <!-- EMAIL -->
+            <div class="form-group">
+                <label for="email">Adresse e-mail</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Exemple : nom@email.com"
+                    required
+                >
+            </div>
+
+            <!-- TYPE DE SERVICE -->
+            <div class="form-group">
+                <label for="service">Service à commander</label>
+
+                <select id="service" name="service" required>
+                    <option value=""> Choisissez un service</option>
+                    <option value="Site web">Création d'un site web</option>
+                    <option value="Application web">Création d'une application web</option>
+                    <option value="Gestion scolaire">Application de gestion scolaire</option>
+                    <option value="Gestion de stock">Application de gestion de stock</option>
+                    <option value="Autre">Autre service</option>
+                </select>
+            </div>
+
+            <!-- DESCRIPTION DU PROJET -->
+            <div class="form-group">
+                <label for="message">Décrivez votre projet</label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    placeholder="Expliquez-nous ce que vous souhaitez réaliser..."
+                    required
+                ></textarea>
+            </div>
+
+            <!-- BOUTON D'ENVOI -->
+            <button type="submit" class="btn">
+                Envoyer ma commande
+            </button>
+
+            <p id="messageForm" role="status"></p>
+
+        </form>
+
+        <!-- AUTRES MOYENS DE CONTACT -->
+        <section class="contact-social">
+
+            <h2>OU CONTACTEZ-NOUS SUR :</h2>
+
+            <div class="social-links">
+
+                <a href="https://wa.me/25767356795"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    WhatsApp
+                </a>
+
+                <a href="https://www.facebook.com/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Facebook
+                </a>
+
+                <a href="https://www.instagram.com/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Instagram
+                </a>
+
+                <a href="https://telegram.org/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Telegram
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- PIED DE PAGE -->
+    <footer>
+        <p>
+            © 2026 IGAS CREATOR —
+            Travailler avec IGAS pour construire ensemble une meilleure vision.
+        </p>
+    </footer>
+
+</body>
+
+</html>i
