@@ -1,6 +1,12 @@
-/* =========================
-   CONFIGURATION GÉNÉRALE
-========================= */
+/* ==================================================
+   IGAS CREATOR - PAGE DE COMMANDE
+   Fichier : contacte.css
+================================================== */
+
+
+/* ==================================================
+   1. CONFIGURATION GÉNÉRALE
+================================================== */
 
 * {
     margin: 0;
@@ -8,210 +14,403 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #FFFFFF;
-    color: #000000;
-    line-height: 1.6;
+html {
+    scroll-behavior: smooth;
 }
 
-/* =========================
-   CONTENEUR PRINCIPAL
-========================= */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f8fc;
+    color: #222222;
+    line-height: 1.7;
+}
+
+
+/* ==================================================
+   2. CONTENEUR PRINCIPAL
+================================================== */
 
 .container {
     width: 90%;
-    max-width: 800px;
-    margin: 50px auto;
+    max-width: 1000px;
+    margin: 40px auto;
     padding: 35px;
-
-    background: #FFFFFF;
-
-    border: 1px solid #D5E2F5;
-    border-radius: 12px;
-
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
 
-/* =========================
-   TITRES
-========================= */
 
-h1 {
-    color: #0056B3;
+/* ==================================================
+   3. EN-TÊTE
+================================================== */
+
+.page-header {
     text-align: center;
+    margin-bottom: 35px;
+}
+
+.logo {
+    display: inline-block;
+    margin-bottom: 25px;
     font-size: 28px;
-    margin-bottom: 20px;
+    font-weight: bold;
+    color: #111111;
+    text-decoration: none;
+    letter-spacing: 1px;
 }
 
-h2 {
-    color: #0056B3;
-    text-align: center;
-    margin-bottom: 20px;
+.logo span {
+    color: #0878f9;
+}
+
+.page-header h1 {
+    color: #0878f9;
+    font-size: 32px;
+    line-height: 1.3;
+    margin-bottom: 18px;
 }
 
 .description {
-    color: #000000;
-    text-align: center;
-    margin-bottom: 30px;
+    max-width: 750px;
+    margin: 0 auto;
+    color: #333333;
+    font-size: 16px;
 }
 
-/* =========================
-   FORMULAIRE
-========================= */
+
+/* ==================================================
+   4. SECTION DE COMMANDE
+================================================== */
+
+.commande-section {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.commande-section h2 {
+    color: #0878f9;
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+
+
+/* ==================================================
+   5. FORMULAIRE
+================================================== */
+
+#formCommande {
+    width: 100%;
+}
 
 .form-group {
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 22px;
 }
 
-label {
-    display: block;
-    margin-bottom: 8px;
-
-    color: #000000;
-    font-weight: bold;
-}
-
-input,
-select,
-textarea {
-    display: block;
-    width: 100%;
-
-    padding: 12px;
-
-    border: 1px solid #B8CBE8;
-    border-radius: 7px;
-
-    background: #FFFFFF;
-    color: #000000;
-
-    font-family: inherit;
+.form-group label {
     font-size: 15px;
+    font-weight: bold;
+    color: #222222;
+    margin-bottom: 8px;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #d4dce8;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #222222;
+    font-size: 15px;
+    font-family: inherit;
     outline: none;
-    border-color: #0056B3;
-    box-shadow: 0 0 5px rgba(0, 86, 179, 0.2);
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-textarea {
+.form-group input,
+.form-group select {
+    min-height: 49px;
+}
+
+.form-group textarea {
     resize: vertical;
+    min-height: 130px;
 }
 
-/* =========================
-   BOUTON D'ENVOI
-========================= */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #888888;
+}
+
+
+/* Effet au clic dans les champs */
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #0878f9;
+    box-shadow: 0 0 0 3px rgba(8, 120, 249, 0.12);
+}
+
+
+/* ==================================================
+   6. BOUTON D'ENVOI
+================================================== */
 
 .btn {
     display: block;
     width: 100%;
-
-    padding: 14px;
-
+    padding: 16px 20px;
     border: none;
-    border-radius: 7px;
-
-    background: #0056B3;
-    color: #FFFFFF;
-
-    font-size: 16px;
+    border-radius: 9px;
+    background-color: #0878f9;
+    color: #ffffff;
+    font-size: 17px;
     font-weight: bold;
-
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .btn:hover {
-    background: #003F87;
+    background-color: #0056c7;
+    transform: translateY(-2px);
 }
 
-/* =========================
-   CONTACTS ET RÉSEAUX
-========================= */
+.btn:active {
+    transform: scale(0.99);
+}
+
+
+/* ==================================================
+   7. MESSAGE DE RETOUR JAVASCRIPT
+================================================== */
+
+#messageForm {
+    margin-top: 18px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+#messageForm:empty {
+    display: none;
+}
+
+#messageForm.erreur {
+    padding: 12px;
+    color: #b42318;
+    background-color: #fff0ee;
+    border: 1px solid #f5c2c0;
+    border-radius: 7px;
+}
+
+#messageForm.succes {
+    padding: 12px;
+    color: #146c43;
+    background-color: #e8f7ee;
+    border: 1px solid #b7e4c7;
+    border-radius: 7px;
+}
+
+
+/* ==================================================
+   8. SECTION DES RÉSEAUX SOCIAUX
+================================================== */
 
 .contact-social {
-    margin-top: 45px;
+    margin-top: 50px;
     padding-top: 30px;
-
-    border-top: 1px solid #D5E2F5;
+    border-top: 1px solid #e1e7ef;
+    text-align: center;
 }
+
+.contact-social h2 {
+    color: #0878f9;
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+.contact-social p {
+    max-width: 650px;
+    margin: 0 auto 25px;
+    color: #333333;
+    font-size: 15px;
+}
+
+
+/* Conteneur des liens */
 
 .social-links {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 15px;
 }
 
-.social-links a {
+
+/* Style général des boutons sociaux */
+
+.social-btn {
     display: inline-block;
-
-    padding: 10px 18px;
-
-    background: #EAF2FF;
-    color: #0056B3;
-
-    border: 1px solid #D5E2F5;
-    border-radius: 7px;
-
-    font-weight: bold;
+    min-width: 125px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    color: #ffffff;
     text-decoration: none;
-
-    transition: background 0.3s, color 0.3s;
+    font-size: 15px;
+    font-weight: bold;
+    transition: transform 0.3s, opacity 0.3s;
 }
 
-.social-links a:hover {
-    background: #0056B3;
-    color: #FFFFFF;
+.social-btn:hover {
+    transform: translateY(-3px);
+    opacity: 0.88;
 }
 
-/* =========================
-   PIED DE PAGE
-========================= */
 
-footer {
-    padding: 25px 5%;
+/* WhatsApp */
 
-    background: #FFFFFF;
-    border-top: 1px solid #D5E2F5;
+.whatsapp {
+    background-color: #25d366;
+}
 
+
+/* Facebook */
+
+.facebook {
+    background-color: #1877f2;
+}
+
+
+/* Instagram */
+
+.instagram {
+    background: linear-gradient(
+        45deg,
+        #feda75,
+        #fa7e1e,
+        #d62976,
+        #962fbf,
+        #4f5bd5
+    );
+}
+
+
+/* Telegram */
+
+.telegram {
+    background-color: #229ed9;
+}
+
+
+/* ==================================================
+   9. PIED DE PAGE
+================================================== */
+
+.footer {
+    padding: 25px 15px;
     text-align: center;
+    background-color: #ffffff;
+    border-top: 1px solid #e1e7ef;
 }
 
-footer p {
-    color: #000000;
+.footer p {
+    margin: 5px 0;
+    color: #333333;
     font-size: 14px;
 }
 
-/* =========================
-   TÉLÉPHONES
-========================= */
 
-@media (max-width: 600px) {
+/* ==================================================
+   10. RESPONSIVE : TABLETTES
+================================================== */
+
+@media (max-width: 768px) {
 
     .container {
         width: 94%;
-        margin: 20px auto;
-        padding: 20px;
+        margin: 25px auto;
+        padding: 25px;
     }
 
-    h1 {
+    .page-header h1 {
+        font-size: 27px;
+    }
+
+    .commande-section h2,
+    .contact-social h2 {
         font-size: 22px;
     }
 
-    h2 {
-        font-size: 19px;
+    .description {
+        font-size: 15px;
+    }
+
+}
+
+
+/* ==================================================
+   11. RESPONSIVE : TÉLÉPHONES
+================================================== */
+
+@media (max-width: 480px) {
+
+    .container {
+        width: 94%;
+        margin: 15px auto;
+        padding: 20px 15px;
+        border-radius: 12px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .page-header h1 {
+        font-size: 23px;
+    }
+
+    .commande-section h2,
+    .contact-social h2 {
+        font-size: 20px;
+    }
+
+    .form-group label {
+        font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .btn {
+        padding: 14px;
+        font-size: 15px;
     }
 
     .social-links {
         flex-direction: column;
+        gap: 12px;
     }
 
-    .social-links a {
+    .social-btn {
+        width: 100%;
+        max-width: 280px;
         text-align: center;
     }
+
+    .footer p {
+        font-size: 12px;
+    }
+
 }
