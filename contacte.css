@@ -1,0 +1,217 @@
+/* =========================
+   CONFIGURATION GÉNÉRALE
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #FFFFFF;
+    color: #000000;
+    line-height: 1.6;
+}
+
+/* =========================
+   CONTENEUR PRINCIPAL
+========================= */
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 35px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #D5E2F5;
+    border-radius: 12px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================
+   TITRES
+========================= */
+
+h1 {
+    color: #0056B3;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #0056B3;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.description {
+    color: #000000;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* =========================
+   FORMULAIRE
+========================= */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+
+    color: #000000;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    display: block;
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #B8CBE8;
+    border-radius: 7px;
+
+    background: #FFFFFF;
+    color: #000000;
+
+    font-family: inherit;
+    font-size: 15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #0056B3;
+    box-shadow: 0 0 5px rgba(0, 86, 179, 0.2);
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* =========================
+   BOUTON D'ENVOI
+========================= */
+
+.btn {
+    display: block;
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #0056B3;
+    color: #FFFFFF;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #003F87;
+}
+
+/* =========================
+   CONTACTS ET RÉSEAUX
+========================= */
+
+.contact-social {
+    margin-top: 45px;
+    padding-top: 30px;
+
+    border-top: 1px solid #D5E2F5;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.social-links a {
+    display: inline-block;
+
+    padding: 10px 18px;
+
+    background: #EAF2FF;
+    color: #0056B3;
+
+    border: 1px solid #D5E2F5;
+    border-radius: 7px;
+
+    font-weight: bold;
+    text-decoration: none;
+
+    transition: background 0.3s, color 0.3s;
+}
+
+.social-links a:hover {
+    background: #0056B3;
+    color: #FFFFFF;
+}
+
+/* =========================
+   PIED DE PAGE
+========================= */
+
+footer {
+    padding: 25px 5%;
+
+    background: #FFFFFF;
+    border-top: 1px solid #D5E2F5;
+
+    text-align: center;
+}
+
+footer p {
+    color: #000000;
+    font-size: 14px;
+}
+
+/* =========================
+   TÉLÉPHONES
+========================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 94%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 19px;
+    }
+
+    .social-links {
+        flex-direction: column;
+    }
+
+    .social-links a {
+        text-align: center;
+    }
+}
