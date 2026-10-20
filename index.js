@@ -1,92 +1,101 @@
-// ===================================
-// 1. RÉCUPÉRER LES ÉLÉMENTS HTML
-// ===================================
+// ======================================
+// CONFIGURATION WHATSAPP
+// ======================================
 
-const menuBtn = document.getElementById("menuBtn");
-const sidebar = document.getElementById("sidebar");
-const closeBtn = document.getElementById("closeBtn");
-const sidebarOverlay = document.getElementById("sidebarOverlay");
+// Remplace par TON numéro WhatsApp.
+const numeroWhatsApp = "25779000000";
 
-// ===================================
-// 2. OUVRIR LE SIDEBAR
-// ===================================
 
-function ouvrirSidebar() {
-sidebar.classList.add("active");
-sidebarOverlay.classList.add("active");
+// ======================================
+// FORMULAIRE DE COMMANDE
+// ======================================
 
-menuBtn.setAttribute("aria-expanded", "true");
-menuBtn.setAttribute("aria-label", "Fermer le menu");
+const formCommande = document.getElementById("formCommande");
 
-document.body.style.overflow = "hidden";
+const messageForm = document.getElementById("messageForm");
 
-}
 
-// ===================================
-// 3. FERMER LE SIDEBAR
-// ===================================
+if (formCommande) {
 
-function fermerSidebar() {
-sidebar.classList.remove("active");
-sidebarOverlay.classList.remove("active");
+    formCommande.addEventListener("submit", function (event) {
 
-menuBtn.setAttribute("aria-expanded", "false");
-menuBtn.setAttribute("aria-label", "Ouvrir le menu");
+        event.preventDefault();
 
-document.body.style.overflow = "";
+        // Récupérer les informations
+        const nom = document.getElementById("nom").value.trim();
 
-}
+        const province = document.getElementById("province").value.trim();
 
-// ===================================
-// 4. CLIQUER SUR LE BOUTON MENU
-// ===================================
+        const commune = document.getElementById("commune").value.trim();
 
-menuBtn.addEventListener("click", function () {
-if (sidebar.classList.contains("active")) {
-fermerSidebar();
+        const telephone = document.getElementById("telephone").value.trim();
+
+        const email = document.getElementById("email").value.trim();
+
+        const service = document.getElementById("service").value;
+
+        const description = document.getElementById("message").value.trim();
+
+
+        // Vérifier les champs
+        if (
+            !nom ||
+            !province ||
+            !commune ||
+            !telephone ||
+            !email ||
+            !service ||
+            !description
+        ) {
+
+            alert("Veuillez remplir tous les champs.");
+
+            return;
+        }
+
+
+        // Préparer la commande
+        const commande = `
+Bonjour IGAS CREATOR !
+
+Je souhaite commander un service.
+
+NOM : ${nom}
+
+PROVINCE : ${province}
+
+COMMUNE : ${commune}
+
+TÉLÉPHONE : ${telephone}
+
+EMAIL : ${email}
+
+SERVICE : ${service}
+
+DESCRIPTION DU PROJET :
+${description}
+
+Merci de me contacter pour discuter de ma commande.
+        `.trim();
+
+
+        // Préparer le lien WhatsApp
+        const url =
+            "https://wa.me/" +
+            numeroWhatsApp +
+            "?text=" +
+            encodeURIComponent(commande);
+
+
+        // Ouvrir WhatsApp
+        window.location.href = url;
+
+    });
+
 } else {
-ouvrirSidebar();
-}
-});
 
-// ===================================
-// 5. CLIQUER SUR LA CROIX
-// ===================================
+    console.error(
+        "Erreur : le formulaire formCommande est introuvable dans le HTML."
+    );
 
-closeBtn.addEventListener("click", fermerSidebar);
-
-// ===================================
-// 6. CLIQUER SUR LE FOND SOMBRE
-// ===================================
-
-sidebarOverlay.addEventListener("click", fermerSidebar);
-
-// ===================================
-// 7. FERMER APRÈS AVOIR CHOISI UN LIEN
-// ===================================
-
-const sidebarLinks = sidebar.querySelectorAll("nav a");
-
-sidebarLinks.forEach(function (lien) {
-lien.addEventListener("click", fermerSidebar);
-});
-
-// ===================================
-// 8. FERMER AVEC LA TOUCHE ÉCHAP
-// ===================================
-
-document.addEventListener("keydown", function (event) {
-if (event.key === "Escape") {
-fermerSidebar();
-}
-});
-
-// ===================================
-// 9. AFFICHER L'ANNÉE ACTUELLE
-// ===================================
-
-const currentYear = document.getElementById("currentYear");
-
-if (currentYear) {
-currentYear.textContent = new Date().getFullYear();
 }
